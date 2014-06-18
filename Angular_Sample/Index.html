@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html ng-app="demoApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+   
+    <!--<div ng-view=""></div>-->
+    <div class="container" ng-controller="SampleController">
+        <h1>View 1</h1>
+        City:
+        <br />
+        <input type="text" ng-model="city" />
+        <ul>
+            <li ng-repeat="member in Family ">
+                {{member.Firstname + ' ' + member.LastName}}
+            </li>
+        </ul>
+
+    </div>
+   
+    <script src="Scripts/angular.js"></script>
+    <script>
+        var demoApp = angular.module('demoApp', []);
+
+   
+            //demoApp.config(function ($routeProvider) {
+              
+            //    $routeProvider
+            //     .when('/view1',
+            //        {
+            //            controller: 'SampleController',
+            //            templateUrl: 'Views/View1.html'
+            //        })
+            //    .when('/view2',
+            //        {
+            //            controller: 'SampleController',
+            //            templateUrl: 'Views/View2.html'
+            //        })
+            //    .otherwise({ redirectTo: '/view1' });
+
+            //});
+        
+
+        demoApp.controller('SampleController', SampleController)
+       
+        function SampleController($scope) {
+            $scope.Family = [
+                { Firstname: 'Subbiah', LastName: 'kalidasan', City: 'Trichy' },
+                { Firstname: 'Devi', LastName: 'Ganesan', City: 'Trichy' },
+                { Firstname: 'Shaswthi', LastName: 'Subbiah', City: 'Atlanta' }
+            ];
+        }
+        
+    </script>
+</body>
+</html>
